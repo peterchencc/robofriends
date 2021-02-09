@@ -39,20 +39,25 @@ class App extends Component {
         .includes(this.state.searchField.toLowerCase())
     })
     console.log('render')
-    return (
-      <div className="text-center bg-gradient-to-r from-green-400 to-blue-500">
-        <h1 className="p-4 text-4xl font-bold">RoboFriends</h1>
-        <div className="my-4">
-          <SearchBox
-            searchField={this.state.searchField}
-            searchChange={this.onSearchChange}
-          />
+
+    if (this.state.robots.length === 0) {
+      return <h1>Loading</h1>
+    } else {
+      return (
+        <div className="text-center bg-gradient-to-r from-green-400 to-blue-500">
+          <h1 className="p-4 text-4xl font-bold">RoboFriends</h1>
+          <div className="my-4">
+            <SearchBox
+              searchField={this.state.searchField}
+              searchChange={this.onSearchChange}
+            />
+          </div>
+          <div className="mx-4">
+            <CardList robots={filteredRobots} />
+          </div>
         </div>
-        <div className="mx-4">
-          <CardList robots={filteredRobots} />
-        </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
