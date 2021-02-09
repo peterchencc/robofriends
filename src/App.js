@@ -1,18 +1,35 @@
 import React, { Component } from 'react'
 import CardList from './CardList'
 import SearchBox from './SearchBox'
-import { robots } from './robots'
+
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      robots: robots,
+      robots: [],
       searchField: '',
     }
+    console.log('constructor')
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => {
+        return response.json()
+      })
+      .then((users) => {
+        this.setState({ robots: users })
+      })
+
+    console.log('componentDidMount')
   }
 
   onSearchChange = (event) => {
     this.setState({ searchField: event.target.value })
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
   }
 
   render() {
@@ -21,7 +38,7 @@ class App extends Component {
         .toLowerCase()
         .includes(this.state.searchField.toLowerCase())
     })
-
+    console.log('render')
     return (
       <div className="text-center bg-gradient-to-r from-green-400 to-blue-500">
         <h1 className="p-4 text-4xl font-bold">RoboFriends</h1>
