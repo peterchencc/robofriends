@@ -10,7 +10,6 @@ class App extends Component {
       robots: [],
       searchField: '',
     }
-    console.log('constructor')
   }
 
   componentDidMount() {
@@ -21,16 +20,10 @@ class App extends Component {
       .then((users) => {
         this.setState({ robots: users })
       })
-
-    console.log('componentDidMount')
   }
 
   onSearchChange = (event) => {
     this.setState({ searchField: event.target.value })
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate')
   }
 
   render() {
