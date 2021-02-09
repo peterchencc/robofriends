@@ -23,7 +23,7 @@ class App extends Component {
     })
 
     return (
-      <div className="text-center">
+      <div className="text-center bg-gradient-to-r from-green-400 to-blue-500">
         <h1 className="p-4 text-4xl font-bold">RoboFriends</h1>
         <div className="my-4">
           <SearchBox
@@ -31,7 +31,9 @@ class App extends Component {
             searchChange={this.onSearchChange}
           />
         </div>
-        <CardList robots={filteredRobots} />
+        <div className="mx-4">
+          <CardList robots={filteredRobots} />
+        </div>
       </div>
     )
   }
