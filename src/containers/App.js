@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CardList from '../components/CardList'
 import SearchBox from '../components/SearchBox'
-import Scroll from '../components/Scroll'
+import Wrapper from '../components/Wrapper'
 
 class App extends Component {
   constructor() {
@@ -45,9 +45,9 @@ class App extends Component {
           />
         </div>
         <div className="mx-4">
-          <Scroll>
+          <Wrapper>
             <CardList robots={filteredRobots} />
-          </Scroll>
+          </Wrapper>
         </div>
       </div>
     )
