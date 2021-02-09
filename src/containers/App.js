@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CardList from '../components/CardList'
 import SearchBox from '../components/SearchBox'
 import Wrapper from '../components/Wrapper'
+import ErrorBoundary from '../components/ErrorBoundary'
 
 class App extends Component {
   constructor() {
@@ -46,7 +47,9 @@ class App extends Component {
         </div>
         <div className="mx-4">
           <Wrapper>
-            <CardList robots={filteredRobots} />
+            <ErrorBoundary>
+              <CardList robots={filteredRobots} />
+            </ErrorBoundary>
           </Wrapper>
         </div>
       </div>
